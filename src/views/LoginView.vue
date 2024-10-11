@@ -56,58 +56,7 @@ const userLoginInfo = ref({
   checked: false,
   loginLoding: false,
 });
-let loginStatus = AuthorizationCode(
-  userLoginInfo.value.user,
-  userLoginInfo.value.password
-);
-if (loginStatus === 200) {
-  router.push("/");
-} else {
-  alert("请重新登录");
-}
-// const submitForm = async () => {
-//   // console.log(await formRef.value.validate());
-//   // if (!formRef()) { return }
-
-//   if (await userLoginInfoRef()) {
-//     if (userLoginInfo.checked != true) {
-//       ElMessage({
-//         message: "请同意服务协议和隐私政策",
-//         type: "error",
-//         plain: true,
-//       });
-//       return;
-//     }
-
-//     let userToken = await AuthorizationCode(
-//       userLoginInfo.user,
-//       userLoginInfo.password
-//     );
-//     userLoginInfo.loginLoding = true;
-
-//     if (userToken.status === 200) {
-//       store.$patch((state) => {
-//         state.access_token = userToken.data.access_token;
-//         state.refresh_token = userToken.data.refresh_token;
-//       });
-//       userLoginInfo.loginLoding = false;
-//       ElMessage({
-//         message: "登录成功",
-//         type: "success",
-//         plain: true,
-//       });
-//       setTimeout(() => {
-//         router.push("/Home/workbench");
-//       }, 1000);
-//     }
-//   } else {
-//     ElMessage({
-//       message: "请输入正确的邮箱",
-//       type: "error",
-//       plain: true,
-//     });
-//   }
-// };
+console.log();
 </script>
 
 <style>

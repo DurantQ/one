@@ -1,7 +1,7 @@
 <template>
-  <div class="w-[1920px] h-[1080px]">
+  <div class="w-[100%] h-[100%]">
     <el-container>
-      <el-aside class="w-[80px] h-[1080px] bg-yellow-300">
+      <el-aside class="w-[80px] h-[928px] bg-yellow-300">
         <div>工作台</div>
         <div>项目</div>
         <div>事项</div>
@@ -1314,7 +1314,12 @@
                 </div>
               </div>
             </el-tab-pane>
-            <el-tab-pane label="开源仓库" name="third">开源仓库</el-tab-pane>
+            <el-tab-pane label="开源仓库" name="third">
+              <div class="flex flex-rol justify-center">
+                <img class="mt-[30px]" src="../assets/4.png" />
+                <p class="w-[64px] h-[20px] mt-[250px] ml-[-130px]">暂无数据</p>
+              </div></el-tab-pane
+            >
             <!-- <el-table-pane><button>创建代码仓库</button></el-table-pane -->
           </el-tabs>
         </el-main>
