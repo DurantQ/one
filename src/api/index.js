@@ -1,6 +1,8 @@
 import axios from "axios";
+import router from "../router";
 
-export const AuthorizationCode = async (username, password) => {
+export const AuthorizationCode = async (username, password) => { 
+    console.log(username,password)
     const urlEncodedData = new URLSearchParams({
         username,
         password,
@@ -12,11 +14,23 @@ export const AuthorizationCode = async (username, password) => {
         scope: 'projects pull_requests issues notes  hook groups gists enterprises'
     }).toString()
 
+
+
     return await (axios.post('https://gitee.com/oauth/token', urlEncodedData, {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
-    }))
+    })).then(
+        function(response){
+            console.log(response);
+            if(response.data.status === 200){
+                router.push('/')
+            }else{
+                alert('请重新登录')
+            }
+            
+        }
+    )
 }
 
 export const CreateRepository = async () => {

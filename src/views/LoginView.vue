@@ -31,7 +31,7 @@
           >和<Button type="link">隐私政策</Button>
         </checkbox>
         <Button
-          @click="AuthorizationCode"
+          @click="AuthorizationCode(userLoginInfo.user, userLoginInfo.password)"
           class="w-full h-[50px] mt-[15px]"
           type="primary"
           >登录</Button
@@ -46,7 +46,7 @@
 import { ref } from "vue";
 import { Carousel, Space, Input, Button, Checkbox } from "ant-design-vue";
 
-// import router from "../router/index.js";
+import router from "../router/index.js";
 import { AuthorizationCode } from "../api";
 
 // 实例化数据
@@ -56,7 +56,15 @@ const userLoginInfo = ref({
   checked: false,
   loginLoding: false,
 });
-
+let loginStatus = AuthorizationCode(
+  userLoginInfo.value.user,
+  userLoginInfo.value.password
+);
+if (loginStatus === 200) {
+  router.push("/");
+} else {
+  alert("请重新登录");
+}
 // const submitForm = async () => {
 //   // console.log(await formRef.value.validate());
 //   // if (!formRef()) { return }
@@ -99,25 +107,6 @@ const userLoginInfo = ref({
 //       plain: true,
 //     });
 //   }
-// };
-
-// submitForm();
-//  点击登录发送请求
-// const loginHandle = async () => {
-//   // 定义一个参数
-//   const loginData = {
-//     username: "3213868796@qq.com", //拿到上面实例化的数据
-//     password: "Fyw666666..",
-//     grant_type: "password",
-//     client_id:
-//       "20f986ff4c5c3a95353bc7fcdb5791c680ef70e4f977908a60dd9632ea3342fa",
-//     client_secret:
-//       "8b732afcfe1501dd01654f1ed1f0c30655b6625f6e90410b8b94b99d0806f023",
-//     scope: "projects pull_requests issues notes hook groups gists enterprises",
-//   };
-//   // 将参数传进去
-//   const [err, res] = await to(loginHandle(loginData));
-//   console.log(err, res);
 // };
 </script>
 
