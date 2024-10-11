@@ -56,7 +56,7 @@ const userLoginInfo = ref({
   checked: false,
   loginLoding: false,
 });
-console.log();
+// console.log(await);
 </script>
 
 <style>

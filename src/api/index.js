@@ -24,7 +24,9 @@ export const AuthorizationCode = async (username, password) => {
         function(response){
             // console.log(response);
             if(response.status === 200){
-                router.push('/')
+                router.push('/login')
+                console.log('AAA');
+                
             }else{
                 alert('请重新登录')
             }
